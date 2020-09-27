@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<p>From SystemInfo API:</p>
+<ul>
+    <li>@Model.SystemInfoDto.OsVersion</li>
+    <li>@Model.SystemInfoDto.Platform</li>
+    <li>@Model.SystemInfoDto.ProcessId</li>
+</ul>
+
+<p>From Weather API:</p>
+@foreach (var weather in Model.Forecast)
+{
+    <p>@weather.Date.ToShortDateString() - @weather.Summary - @weather.TemperatureC&#176C</p>
+}
+
